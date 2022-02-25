@@ -9,6 +9,7 @@ class App extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
+    this.removeCard = this.removeCard.bind(this);
     this.validate = this.validate.bind(this);
 
     this.state = {
@@ -71,6 +72,20 @@ class App extends React.Component {
       isSaveButtonDisabled: true,
     }), () => this.setState((previous) => ({
       hasTrunfo: previous.cardDeck.some((carta) => carta.cardTrunfo === true),
+    })));
+  }
+
+  removeCard(card) {
+    const {
+      cardDeck,
+    } = this.state;
+
+    const newDeck = cardDeck.filter((carta) => carta !== card);
+
+    this.setState({
+      cardDeck: [...newDeck],
+    }, () => this.setState((prev) => ({
+      hasTrunfo: prev.cardDeck.some((carta) => carta.cardTrunfo === true),
     })));
   }
 
@@ -164,6 +179,13 @@ class App extends React.Component {
                   cardRare={ card.cardRare }
                   cardTrunfo={ card.cardTrunfo }
                 />
+                <button
+                  type="button"
+                  data-testid="delete-button"
+                  onClick={ () => this.removeCard(card) }
+                >
+                  Excluir
+                </button>
               </li>
             ))
           }
