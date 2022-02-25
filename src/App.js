@@ -8,6 +8,7 @@ class App extends React.Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.nameFilter = this.nameFilter.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.removeCard = this.removeCard.bind(this);
     this.validate = this.validate.bind(this);
@@ -24,6 +25,7 @@ class App extends React.Component {
       hasTrunfo: false,
       isSaveButtonDisabled: true,
       cardDeck: [],
+      filtro: '',
     };
   }
 
@@ -73,6 +75,12 @@ class App extends React.Component {
     }), () => this.setState((previous) => ({
       hasTrunfo: previous.cardDeck.some((carta) => carta.cardTrunfo === true),
     })));
+  }
+
+  nameFilter({ target }) {
+    this.setState({
+      filtro: target.value,
+    });
   }
 
   removeCard(card) {
@@ -132,6 +140,7 @@ class App extends React.Component {
       hasTrunfo,
       cardDeck,
       isSaveButtonDisabled,
+      filtro,
     } = this.state;
 
     return (
@@ -164,30 +173,42 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
         />
 
+        <h2>Baralho de Cartas</h2>
+
+        <label htmlFor="nameFilter">
+          Filtro por Nomes:
+          <input
+            type="text"
+            name="nameFilter"
+            data-testid="name-filter"
+            onChange={ this.nameFilter }
+          />
+        </label>
+
         <ul>
-          CARTAS
           {
-            cardDeck.map((card, index) => (
-              <li key={ index }>
-                <Card
-                  cardName={ card.cardName }
-                  cardDescription={ card.cardDescription }
-                  cardAttr1={ card.cardAttr1 }
-                  cardAttr2={ card.cardAttr2 }
-                  cardAttr3={ card.cardAttr3 }
-                  cardImage={ card.cardImage }
-                  cardRare={ card.cardRare }
-                  cardTrunfo={ card.cardTrunfo }
-                />
-                <button
-                  type="button"
-                  data-testid="delete-button"
-                  onClick={ () => this.removeCard(card) }
-                >
-                  Excluir
-                </button>
-              </li>
-            ))
+            cardDeck.filter((card) => card.cardName.includes(filtro))
+              .map((card, index) => (
+                <li key={ index }>
+                  <Card
+                    cardName={ card.cardName }
+                    cardDescription={ card.cardDescription }
+                    cardAttr1={ card.cardAttr1 }
+                    cardAttr2={ card.cardAttr2 }
+                    cardAttr3={ card.cardAttr3 }
+                    cardImage={ card.cardImage }
+                    cardRare={ card.cardRare }
+                    cardTrunfo={ card.cardTrunfo }
+                  />
+                  <button
+                    type="button"
+                    data-testid="delete-button"
+                    onClick={ () => this.removeCard(card) }
+                  >
+                    Excluir
+                  </button>
+                </li>
+              ))
           }
         </ul>
 
