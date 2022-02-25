@@ -10,7 +10,9 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.nameFilter = this.nameFilter.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
+    this.rareFilter = this.rareFilter.bind(this);
     this.removeCard = this.removeCard.bind(this);
+    this.trunfoFilter = this.trunfoFilter.bind(this);
     this.validate = this.validate.bind(this);
 
     this.state = {
@@ -25,7 +27,9 @@ class App extends React.Component {
       hasTrunfo: false,
       isSaveButtonDisabled: true,
       cardDeck: [],
-      filtro: '',
+      searchName: '',
+      searchRarity: 'todas',
+      trunfoFilterActive: false,
     };
   }
 
@@ -40,15 +44,8 @@ class App extends React.Component {
 
   onSaveButtonClick() {
     const {
-      cardName,
-      cardDescription,
-      cardImage,
-      cardRare,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardTrunfo,
-    } = this.state;
+      cardName, cardDescription, cardImage, cardRare, cardAttr1, cardAttr2,
+      cardAttr3, cardTrunfo } = this.state;
 
     const card = {
       cardName,
@@ -78,15 +75,15 @@ class App extends React.Component {
   }
 
   nameFilter({ target }) {
-    this.setState({
-      filtro: target.value,
-    });
+    this.setState({ searchName: target.value });
+  }
+
+  rareFilter({ target }) {
+    this.setState({ searchRarity: target.value });
   }
 
   removeCard(card) {
-    const {
-      cardDeck,
-    } = this.state;
+    const { cardDeck } = this.state;
 
     const newDeck = cardDeck.filter((carta) => carta !== card);
 
@@ -97,16 +94,18 @@ class App extends React.Component {
     })));
   }
 
+  trunfoFilter({ target }) {
+    if (target.checked === true) {
+      this.setState({ trunfoFilterActive: true });
+    } else {
+      this.setState({ trunfoFilterActive: false });
+    }
+  }
+
   validate() {
     const {
-      cardName,
-      cardDescription,
-      cardImage,
-      cardRare,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-    } = this.state;
+      cardName, cardDescription, cardImage, cardRare, cardAttr1, cardAttr2,
+      cardAttr3 } = this.state;
 
     const sumAttrs = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3);
     const top = 90;
@@ -129,19 +128,9 @@ class App extends React.Component {
 
   render() {
     const {
-      cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardImage,
-      cardRare,
-      cardTrunfo,
-      hasTrunfo,
-      cardDeck,
-      isSaveButtonDisabled,
-      filtro,
-    } = this.state;
+      cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
+      cardRare, cardTrunfo, hasTrunfo, cardDeck, isSaveButtonDisabled,
+      searchName, searchRarity, trunfoFilterActive } = this.state;
 
     return (
       <div>
@@ -182,12 +171,46 @@ class App extends React.Component {
             name="nameFilter"
             data-testid="name-filter"
             onChange={ this.nameFilter }
+            disabled={ trunfoFilterActive }
           />
+        </label>
+
+        <label htmlFor="rarityFilter">
+          Filtro por Raridade:
+          <select
+            name="rarityFilter"
+            data-testid="rare-filter"
+            onChange={ this.rareFilter }
+            disabled={ trunfoFilterActive }
+          >
+            <option value="todas">Todas</option>
+            <option value="normal">Normal</option>
+            <option value="raro">Raro</option>
+            <option value="muito raro">Muito raro</option>
+          </select>
+        </label>
+
+        <label htmlFor="trunfoFilter">
+          <input
+            type="checkbox"
+            name="trunfoFilter"
+            data-testid="trunfo-filter"
+            onChange={ this.trunfoFilter }
+          />
+          Super Trunfo
         </label>
 
         <ul>
           {
-            cardDeck.filter((card) => card.cardName.includes(filtro))
+            cardDeck.filter((card) => (
+              trunfoFilterActive === true
+                ? card.cardTrunfo === true
+                : card))
+              .filter((card) => card.cardName.includes(searchName))
+              .filter((card) => (
+                searchRarity !== 'todas'
+                  ? card.cardRare === searchRarity
+                  : card.cardName))
               .map((card, index) => (
                 <li key={ index }>
                   <Card
