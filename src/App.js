@@ -150,6 +150,7 @@ class App extends React.Component {
         />
 
         <ul>
+          CARTAS
           {
             cardDeck.map((card, index) => (
               <li key={ index }>
