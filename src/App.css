@@ -1,0 +1,170 @@
+:root {
+
+  --fire-opal: rgba(238, 99, 82, 1);
+
+  --emerald: rgba(89, 205, 144, 1);
+
+  --cerulean-crayola: rgba(63, 167, 214, 1);
+
+  --rufous: rgba(167, 34, 17, 1);
+
+  --hunter-green: rgba(28, 94, 59, 1);
+
+  --blue-sapphire: rgba(21, 77, 101, 1);
+}
+
+.app {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header, h1, h2 {
+  text-align: center;
+  width: 100%;
+}
+
+header {
+  background-color: var(--cerulean-crayola);
+  border-bottom: 5px inset var(--blue-sapphire);
+}
+
+.title {
+  color: white;
+  font-family: Permanent Marker , cursive;
+  font-size: 60px;
+  font-weight: 400;
+  margin: 10px 0;
+  text-shadow: -1px -1px
+    0 var(--cerulean-crayola) , 3px
+    3px 0 var(--cerulean-crayola) , 6px
+    6px 0 var(--blue-sapphire);
+}
+
+.form-container {
+  background: linear-gradient
+    (315deg , white 60% , aqua 100%);
+  box-shadow: inset -2px -2px 5px var(--blue-sapphire);
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+form {
+  height: 82vh;
+  justify-content: space-evenly;
+  padding-top: 10px;
+}
+
+form, .card-view {
+  align-items: center;
+  display: flex;
+  flex: 2;
+  flex-basis: 360px;
+  flex-direction: column;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+input, textarea, select, button {
+  border-color: var(--cerulean-crayola);
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 4px var(--blue-sapphire);
+  margin: 10px;
+}
+
+input, select {
+  background-color: white;
+  padding: 3px;
+}
+
+textarea {
+  height: 72px;
+  resize: none;
+  width: 250px;
+}
+
+button {
+  padding: 5px 15px;
+}
+
+button:hover {
+  background: linear-gradient
+    (180deg , white 30% , aqua 100%);
+  box-shadow: inset 2px 2px 4px white;
+}
+
+button:active {
+  background: linear-gradient
+    (0deg , white 30% , aqua 100%);
+}
+
+.check {
+  align-items: center;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  margin: 7px 20px 7px 0;
+}
+
+.checkbox {
+  margin: 0 10px;
+}
+
+.card-view {
+  background: linear-gradient
+    (135deg , white 60% , aqua 100%);
+  box-shadow: inset 2px -2px 5px var(--blue-sapphire);
+  height: 82vh;
+  justify-content: center;
+  padding: 5px 0;
+}
+
+.colection {
+  background-color: var(--cerulean-crayola);
+  border-bottom: 5px inset var(--blue-sapphire);
+  border-top: 5px ridge var(--cerulean-crayola);
+  color: white;
+  font-family: Permanent Marker , cursive;
+  font-size: 40px;
+  font-weight: 400;
+  margin: 0;
+  padding: 10px 0;
+  text-shadow: -1px
+    -1px 0 var(--cerulean-crayola) , 3px
+    3px 0 var(--cerulean-crayola) , 6px
+    6px 0 var(--blue-sapphire);
+}
+
+.filters {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  width: 260px;
+}
+
+ul {
+  box-shadow: -2px 0 5px var(--blue-sapphire);
+  display: flex;
+  flex-basis: 360px;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  background: linear-gradient
+    (180deg , white 92% , aqua 100%);
+  box-shadow: inset 2px -2px 5px var(--blue-sapphire);
+  flex-grow: 1;
+  list-style: none;
+  text-align: center;
+}

@@ -1,4 +1,6 @@
 import React from 'react';
+import './App.css';
+import './Cartas.css';
 
 import Form from './components/Form';
 import Card from './components/Card';
@@ -133,8 +135,10 @@ class App extends React.Component {
       searchName, searchRarity, trunfoFilterActive } = this.state;
 
     return (
-      <div>
-        <h1>Tryunfo</h1>
+      <div className="app">
+        <header>
+          <h1 className="title">Tryunfo</h1>
+        </header>
 
         <Form
           cardName={ cardName }
@@ -162,43 +166,47 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
         />
 
-        <h2>Baralho de Cartas</h2>
+        <h2 className="colection">Baralho de Cartas</h2>
 
-        <label htmlFor="nameFilter">
-          Filtro por Nomes:
-          <input
-            type="text"
-            name="nameFilter"
-            data-testid="name-filter"
-            onChange={ this.nameFilter }
-            disabled={ trunfoFilterActive }
-          />
-        </label>
+        <div className="filters">
 
-        <label htmlFor="rarityFilter">
-          Filtro por Raridade:
-          <select
-            name="rarityFilter"
-            data-testid="rare-filter"
-            onChange={ this.rareFilter }
-            disabled={ trunfoFilterActive }
-          >
-            <option value="todas">Todas</option>
-            <option value="normal">Normal</option>
-            <option value="raro">Raro</option>
-            <option value="muito raro">Muito raro</option>
-          </select>
-        </label>
+          <label htmlFor="nameFilter">
+            Filtro por Nomes:
+            <input
+              type="text"
+              name="nameFilter"
+              data-testid="name-filter"
+              onChange={ this.nameFilter }
+              disabled={ trunfoFilterActive }
+            />
+          </label>
 
-        <label htmlFor="trunfoFilter">
-          <input
-            type="checkbox"
-            name="trunfoFilter"
-            data-testid="trunfo-filter"
-            onChange={ this.trunfoFilter }
-          />
-          Super Trunfo
-        </label>
+          <label htmlFor="rarityFilter">
+            Filtro por Raridade:
+            <select
+              name="rarityFilter"
+              data-testid="rare-filter"
+              onChange={ this.rareFilter }
+              disabled={ trunfoFilterActive }
+            >
+              <option value="todas">Todas</option>
+              <option value="normal">Normal</option>
+              <option value="raro">Raro</option>
+              <option value="muito raro">Muito raro</option>
+            </select>
+          </label>
+
+          <label htmlFor="trunfoFilter" className="check">
+            <input
+              type="checkbox"
+              name="trunfoFilter"
+              className="checkbox"
+              data-testid="trunfo-filter"
+              onChange={ this.trunfoFilter }
+            />
+            Super Trunfo
+          </label>
+        </div>
 
         <ul>
           {
@@ -234,7 +242,6 @@ class App extends React.Component {
               ))
           }
         </ul>
-
       </div>
     );
   }

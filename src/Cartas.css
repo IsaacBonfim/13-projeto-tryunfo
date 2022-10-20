@@ -1,0 +1,218 @@
+:root {
+
+  --fire-opal: rgba(238, 99, 82, 1);
+
+  --emerald: rgba(89, 205, 144, 1);
+
+  --cerulean-crayola: rgba(63, 167, 214, 1);
+
+  --rufous: rgba(167, 34, 17, 0.5);
+
+  --hunter-green: rgba(28, 94, 59, 0.5);
+
+  --blue-sapphire: rgba(21, 77, 101, 0.5);
+}
+
+.card {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-height: 550px;
+  position: relative;
+  text-align: center;
+  width: 330px;
+}
+
+.card-name, .description, .Attr1, .Attr2, .Attr3, .rarity, .trunfo {
+  position: absolute;
+  z-index: 2;
+}
+
+.card-name {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  top: 0;
+}
+
+.description {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  bottom: 140px;
+  margin: 0;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.Attr1, .Attr2, .Attr3 {
+  font-size: 17px;
+  padding: 5px 0;
+  width: 100%;
+}
+
+.Attr1 {
+  bottom: 110px;
+}
+
+.Attr2 {
+  bottom: 80px;
+}
+
+.Attr3 {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  bottom: 50px;
+}
+
+.rarity {
+  bottom: 0;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 10px 0;
+  text-shadow: 1px 1px 3px inherit;
+  text-transform: capitalize;
+}
+
+.trunfo {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: -1px -1px 0 gold,
+    1px 1px 0 gold;
+  top: 45px;
+}
+
+img {
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  height: 450px;
+  position: absolute;
+  width: 300px;
+  z-index: 1;
+}
+
+.normal {
+  background-image:
+    linear-gradient(40deg,
+    hsl(164deg 61% 50%) 0%,
+    hsl(159deg 62% 53%) 11%,
+    hsl(155deg 65% 57%) 22%,
+    hsl(150deg 68% 59%) 33%,
+    hsl(146deg 72% 62%) 44%,
+    hsl(141deg 76% 65%) 56%,
+    hsl(137deg 81% 67%) 67%,
+    hsl(132deg 87% 69%) 78%,
+    hsl(128deg 93% 72%) 89%,
+    hsl(123deg 100% 74%) 100%);
+  border: 5px ridge var(--emerald);
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px 3px var(--hunter-green);
+}
+
+.normal > .rarity {
+  color: rgba(0, 50, 0, 0.9);
+  text-shadow: 1px 1px 2px rgb(0, 90, 0);
+}
+
+.normal > .description,
+.normal > .Attr1,
+.normal > .Attr2,
+.normal > .Attr3 {
+  background-image: 
+    radial-gradient(
+      rgba(255, 255, 255, 0.5) 50%, 
+      rgba(0, 90, 0, 0.5)  100%
+    );
+}
+
+.raro {
+  background-image: linear-gradient(
+    40deg,
+    hsl(236deg 61% 50%) 0%,
+    hsl(227deg 62% 53%) 11%,
+    hsl(221deg 65% 57%) 22%,
+    hsl(216deg 68% 59%) 33%,
+    hsl(211deg 72% 62%) 44%,
+    hsl(207deg 76% 65%) 56%,
+    hsl(203deg 81% 67%) 67%,
+    hsl(200deg 87% 69%) 78%,
+    hsl(197deg 93% 72%) 89%,
+    hsl(194deg 100% 74%) 100% );
+  border: 5px ridge var(--cerulean-crayola);
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px 3px var(--blue-sapphire);
+}
+
+.raro > .rarity {
+  color: rgba(0, 0, 120, 0.8);
+  text-shadow: 1px 1px 2px rgba(0, 0, 90, 1);
+}
+
+.raro h1 {
+  background-image: linear-gradient(to bottom, var(--cerulean-crayola), black, var(--cerulean-crayola));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.raro > .description,
+.raro > .Attr1,
+.raro > .Attr2,
+.raro > .Attr3 {
+  background-image: 
+    radial-gradient(
+      rgba(255, 255, 255, 0.5) 50%, 
+      rgba(0, 0, 90, 0.5)  100%
+    );
+}
+
+.muito-raro {
+  background-color: red;
+  background-image: linear-gradient(
+    40deg,
+    hsl(0deg 100% 37%) 0%,
+    hsl(353deg 71% 45%) 11%,
+    hsl(350deg 62% 49%) 22%,
+    hsl(348deg 63% 52%) 33%,
+    hsl(346deg 66% 56%) 44%,
+    hsl(344deg 70% 58%) 56%,
+    hsl(342deg 75% 61%) 67%,
+    hsl(341deg 80% 64%) 78%,
+    hsl(339deg 85% 66%) 89%,
+    hsl(338deg 91% 68%) 100%
+  );
+  border: 6px ridge var(--fire-opal);
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px 3px var(--rufous);
+}
+
+.muito-raro > .rarity {
+  color: rgba(50, 0, 0, 0.8);
+  text-shadow: -1px -1px 0 rgba(250, 250, 0, 0.2),
+    2px 2px 0 rgba(250, 250, 0, 0.2),
+    3px 3px 0 rgba(100, 0, 0, 0.4);
+}
+
+.muito-raro h1 {
+  background-image: linear-gradient(to bottom, var(--fire-opal), rgb(37, 8, 4), var(--fire-opal));
+  background-clip: text;
+  transform: skewX(-25deg);
+  text-shadow: -1px -1px 0px rgba(167, 34, 17, 0.2),
+  2px 2px 0px rgba(167, 34, 17, 0.2),
+  3px 3px 0px rgba(167, 34, 17, 0.4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.muito-raro > .description,
+.muito-raro > .Attr1,
+.muito-raro > .Attr2,
+.muito-raro > .Attr3 {
+  background-image: 
+    radial-gradient(
+      rgba(255, 255, 255, 0.5) 50%, 
+      rgba(255, 0, 0, 0.5)  100%
+    );
+}
