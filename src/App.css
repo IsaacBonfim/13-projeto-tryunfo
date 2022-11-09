@@ -42,8 +42,8 @@ header {
 }
 
 .form-container {
-  background: linear-gradient
-    (315deg , white 60% , aqua 100%);
+  background: linear-gradient(315deg, white
+  60%, aqua 100%);
   box-shadow: inset -2px -2px 5px var(--blue-sapphire);
   display: flex;
   justify-content: center;
@@ -93,14 +93,14 @@ button {
 }
 
 button:hover {
-  background: linear-gradient
-    (180deg , white 30% , aqua 100%);
+  background: linear-gradient(180deg, white
+  30%, aqua 100%);
   box-shadow: inset 2px 2px 4px white;
 }
 
 button:active {
-  background: linear-gradient
-    (0deg , white 30% , aqua 100%);
+  background: linear-gradient(0deg, white
+  30%, aqua 100%);
 }
 
 .check {
@@ -116,8 +116,8 @@ button:active {
 }
 
 .card-view {
-  background: linear-gradient
-    (135deg , white 60% , aqua 100%);
+  background: linear-gradient(135deg, white
+  60%, aqua 100%);
   box-shadow: inset 2px -2px 5px var(--blue-sapphire);
   height: 82vh;
   justify-content: center;
@@ -161,8 +161,8 @@ ul {
 }
 
 li {
-  background: linear-gradient
-    (180deg , white 92% , aqua 100%);
+  background: linear-gradient(180deg, white
+  92%, aqua 100%);
   box-shadow: inset 2px -2px 5px var(--blue-sapphire);
   flex-grow: 1;
   list-style: none;
