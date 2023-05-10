@@ -34,7 +34,7 @@ class Card extends React.Component {
             { `Attr3: ................ ${cardAttr3}` }
           </span>
 
-          <span data-testid="rare-card" className="rarity">{ cardRare }</span>
+          <span data-testid="rare-card" className="rarity">{ cardRare === "m-raro" ? "Muito Raro" : cardRare }</span>
 
           {
             cardTrunfo
