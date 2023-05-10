@@ -143,62 +143,54 @@ img {
 
 .raro h1 {
   background-clip: text;
-  background-image: linear-gradient(to bottom, var(--cerulean-crayola), black, var(--cerulean-crayola));
-  -webkit-background-clip: text;
+  background-image: linear-gradient(180deg, var(--cerulean-crayola)
+  13%, black 46%, var(--cerulean-crayola) 96%);
   -webkit-text-fill-color: transparent;
 }
 
 .raro > .description, .raro > .Attr1, .raro > .Attr2, .raro > .Attr3 {
-  background-image: 
-    radial-gradient(
-      rgba(255, 255, 255, 0.5) 50%, 
-      rgba(0, 0, 90, 0.5)  100%
-    );
+  background-image: radial-gradient(rgba(255, 255, 255, 0.5)
+  50%, rgba(0, 0, 90, 0.5)  100%);
 }
 
-.muito-raro {
+.m-raro {
   background-color: red;
-  background-image: linear-gradient(
-    40deg,
-    hsl(0deg 100% 37%) 0%,
-    hsl(353deg 71% 45%) 11%,
-    hsl(350deg 62% 49%) 22%,
-    hsl(348deg 63% 52%) 33%,
-    hsl(346deg 66% 56%) 44%,
-    hsl(344deg 70% 58%) 56%,
-    hsl(342deg 75% 61%) 67%,
-    hsl(341deg 80% 64%) 78%,
-    hsl(339deg 85% 66%) 89%,
-    hsl(338deg 91% 68%) 100%
-  );
+  background-image: linear-gradient(40deg, hsl(0deg 100% 37%)
+  0%, hsl(353deg 71% 45%)
+  11%, hsl(350deg 62% 49%)
+  22%, hsl(348deg 63% 52%)
+  33%, hsl(346deg 66% 56%)
+  44%, hsl(344deg 70% 58%)
+  56%, hsl(342deg 75% 61%)
+  67%, hsl(341deg 80% 64%)
+  78%, hsl(339deg 85% 66%)
+  89%, hsl(338deg 91% 68%) 100%);
   border: 6px ridge var(--fire-opal);
   border-radius: 15px;
   box-shadow: 3px 3px 3px 3px var(--rufous);
 }
 
-.muito-raro > .rarity {
+.m-raro > .rarity {
   color: rgba(50, 0, 0, 0.8);
-  text-shadow: -1px -1px 0 rgba(250, 250, 0, 0.2),
-    2px 2px 0 rgba(250, 250, 0, 0.2),
-    3px 3px 0 rgba(100, 0, 0, 0.4);
+  text-shadow: -1px
+    -1px 0 rgba(250, 250, 0, 0.2) , 2px
+    2px 0 rgba(250, 250, 0, 0.2) , 3px
+    3px 0 rgba(100, 0, 0, 0.4);
 }
 
-.muito-raro h1 {
+.m-raro h1 {
   background-clip: text;
-  background-image: linear-gradient(to bottom, var(--fire-opal), rgb(37, 8, 4), var(--fire-opal));
+  background-image: linear-gradient(180deg, var(--fire-opal)
+  13%, rgb(37, 8, 4) 46%, var(--fire-opal) 96%);
+  -webkit-text-fill-color: transparent;
   text-shadow: -1px
     -1px 0 rgba(167, 34, 17, 0.2) , 2px
     2px 0 rgba(167, 34, 17, 0.2) , 3px
     3px 0 rgba(167, 34, 17, 0.4);
   transform: skewX(-25deg);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
-.muito-raro > .description, .muito-raro > .Attr1, .muito-raro > .Attr2, .muito-raro > .Attr3 {
-  background-image: 
-    radial-gradient(
-      rgba(255, 255, 255, 0.5) 50%, 
-      rgba(255, 0, 0, 0.5)  100%
-    );
+.m-raro > .description, .m-raro > .Attr1, .m-raro > .Attr2, .m-raro > .Attr3 {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.5)
+  50%, rgba(255, 0, 0, 0.5)  100%);
 }
